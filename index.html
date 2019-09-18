@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lOGIN FIREBASE</title>
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAO72YTaSy7pbknf9fO-7JpILw8SZpD6AI",
+            authDomain: "proyectodepruebafirebase-b709d.firebaseapp.com",
+            databaseURL: "https://proyectodepruebafirebase-b709d.firebaseio.com",
+            projectId: "proyectodepruebafirebase-b709d",
+            storageBucket: "",
+            messagingSenderId: "175694535781",
+            appId: "1:175694535781:web:f3fd997785e28743637a8c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+
+<body>
+    <section class="registerSection">
+        <div class="container">
+            <div class="row">
+                <div class="description col-12 col-sm-12 col-md-6 d-sm-none d-md-block">
+
+                </div>
+                <div class="form col-12 col-sm-12  col-md-6">
+                    <form>
+                        <div class="card">
+                            <div class="card-title text-center">
+                                <span class="h3 ">Formulario de registro</span>
+                                <hr>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                        placeholder="Tu direccion de correo electroico">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                        anyone
+                                        else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="button" class="btn btn-block btn-primary"
+                                    id="btnRegistro">Registrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login app firebase -->
+    <section class="loginSection">
+        <div class="container">
+            <div class="row">
+                <div class="description col-12 col-sm-12 col-md-6 d-sm-none d-md-block">
+
+                </div>
+                <div class="form col-12 col-sm-12  col-md-6">
+                    <form>
+                        <div class="card">
+                            <div class="card-title text-center">
+                                <span class="h3 ">Iniciar sesión</span>
+                                <hr>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" id="emailLogin"
+                                        aria-describedby="emailHelp" placeholder="Tu direccion de correo electroico">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                        anyone
+                                        else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Contraseña</label>
+                                    <input type="password" class="form-control" id="passwordLogin"
+                                        placeholder="Contraseña">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="button" class="btn btn-block btn-primary" id="btnLogin">Iniciar
+                                    session</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datos de usuario logeado -->
+    <section class="datesSection">
+        <div class="container">
+            <div class="row">
+                <div class="description col-12 col-sm-12 col-md-6 d-sm-none d-md-block">
+
+                </div>
+                <div class="form col-12 col-sm-12  col-md-6">
+                    <div class="card">
+                        <div class="card-title text-center">
+                            <span class="h3 ">Datos de usuario logeado</span>
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <div class="containerDates" id="containerDates">
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+</body>
+
+</html>

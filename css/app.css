@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+form{
+    width: 80%;
+    height: auto;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: calc(100vh);
+}
+.row{
+    width: 100%;
+}
+.card-title{
+    padding-top: .5rem;
+}
+.card-title .h3{
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px){
+    .row{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    form{
+        width: 100%;
+        height: auto;
+    }
+    .form{
+        justify-content: center;
+    }
+}
