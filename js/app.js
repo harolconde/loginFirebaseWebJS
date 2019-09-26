@@ -15,6 +15,9 @@ const btnlogin = document.getElementById('btnLogin')
 
 let register = () => {
     firebase.auth().createUserWithEmailAndPassword(emailRegister.value, passworRegister.value)
+        .then(() => {
+            autenticar()
+        })
         .catch(function (error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -23,6 +26,18 @@ let register = () => {
             console.log(errorMessage)
             // ...
         });
+}
+
+// Funcion autenticar por email enviado a cuenta
+let autenticar = () => {
+    let user = firebase.auth().currentUser
+    user.sendEmailVerification().then(function () {
+        // Email sent.
+        console.log('Enviando mensaje')
+    }).catch(function (error) {
+        // An error happened.
+        console.log(error)
+    });
 }
 
 // Funcion para logeo usuario
@@ -43,6 +58,7 @@ let observable = () => {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             console.log('Existe usuario activo')
+            containerInfoLogin(user)
             // User is signed in.
             var displayName = user.displayName;
             var email = user.email;
@@ -51,7 +67,7 @@ let observable = () => {
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var providerData = user.providerData;
-
+            console.log(user.emailVerified)
             containerInfoLogin(email)
             // ...
         } else {
@@ -63,29 +79,33 @@ let observable = () => {
 }
 
 // Funcion que muestra informacion del login
-let containerInfoLogin = (email) => {
+let containerInfoLogin = (user) => {
     let containerUserLoged = document.getElementById('containerDates')
-    containerUserLoged.innerHTML = /* html*/ `
+    //let user = user
+    if (user.emailVerified) {
+        containerUserLoged.innerHTML = /* html*/ `
         <div>
-            <span>${email}</span>
+            
             <ul class="list-group">
                 <li class="list-group-item">
                     <button onclick="logout()" class="btn btn-block btn-danger" id="btnLogout">Cerrar sesión</button>
                 </li>
             </ul>
-        </dvi>
+        </div>
     `
+    }
+
 }
 
 // Funcion para cerrar sesión 
 let logout = () => {
     console.log('Saliendo..')
-    firebase.auth().signOut().then(function(){
-      console.log('Saliendo...')  
+    firebase.auth().signOut().then(function () {
+        console.log('Saliendo...')
     })
-    .catch(function(error){
-        console.log(error)
-    })
+        .catch(function (error) {
+            console.log(error)
+        })
 }
 
 
